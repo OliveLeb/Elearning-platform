@@ -25,4 +25,4 @@
         </li>
     </ul>
 </nav>
-<a href="#" class="primary-btn top-btn"><i class="fas fa-user"></i> Connexion</a>
+<a href="{{route('login')}}" class="primary-btn top-btn"><i class="fas fa-user"></i> Connexion</a>

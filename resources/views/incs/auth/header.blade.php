@@ -68,7 +68,7 @@
                 <i class="fas fa-heart"></i>
                 <span class="badge badge-pill badge-danger">1</span>
             </a>
-            <ul class="dropdown px-2 py-2"> 
+            <ul class="dropdown px-2 py-2">
                 <li>
                     <div class="d-flex">
                         <img class="avatar border-rounded" src="https://blog.hyperiondev.com/wp-content/uploads/2019/02/Blog-Types-of-Web-Dev.jpg"/>
@@ -88,13 +88,13 @@
                 <li>
                     <div class="d-flex justify-content-between py-3 px-3">
                         <div class="user-infos">
-                            <p>Utilisateur</p>
-                            <small>utilisateur@email.com</small>
+                            <p>{{Auth::user()->name}}</p>
+                            <small>{{Auth::user()->email}}</small>
                         </div>
                     </div>
                 </li>
                 <div class="dropdown-divider"></div>
-                <li><a href="#"><i class="fas fa-sign-out-alt"></i> Déconnexion</a></li>
+                <li><a href=" {{route('logout')}}  "><i class="fas fa-sign-out-alt"></i> Déconnexion</a></li>
             </ul>
         </li>
     </ul>
