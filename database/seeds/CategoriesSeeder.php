@@ -24,7 +24,7 @@ class CategoriesSeeder extends Seeder
 
         $category = new Category();
         $category->icon = '<i class="fas fa-pen-nib"></i>';
-        $category->name = 'Développement Infrastructure';
+        $category->name = 'Infrastructure';
         $category->save();
     }
 }

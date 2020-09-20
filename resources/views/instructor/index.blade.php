@@ -9,7 +9,7 @@
                 <div class="section-title">
                     <h2>Cours</h2>
                     <p class="mt-3">Dès maintenant, créez votre prochain cours en quelques clics !</p>
-                    <a href="#" class="primary-btn mt-3">
+                    <a href="{{route('instructor.create')}}" class="primary-btn mt-3">
                         <i class="fas fa-plus"></i>
                         Nouveau cours
                     </a>
@@ -26,10 +26,10 @@
                         <span><i class="fa fa-clock-o"></i> {{$course->created_at}} </span>
                     </div>
                 </div>
-                <div class="blog-item set-bg" data-setbg="https://blog.hyperiondev.com/wp-content/uploads/2019/02/Blog-Types-of-Web-Dev.jpg">
+                <div class="blog-item set-bg" data-setbg="/storage/courses/{{$course->user_id}}/{{$course->image}}">
                 </div>
                 <div class="btn-actions d-flex justify-content-center">
-                    <a href="#" class="primary-btn">
+                    <a href="{{ route('instructor.edit', $course->id) }}" class="primary-btn">
                         <i class="fas fa-edit"></i>
                         Modifier
                     </a>

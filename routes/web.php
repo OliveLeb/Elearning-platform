@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'MainController@home' );
+Route::get('/', 'MainController@home' )->name('main.home');
 
 
 Auth::routes();
@@ -26,4 +26,7 @@ Route::get('/logout',function(){
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/instructor/overview','InstructorController@index');
+Route::get('/instructor/overview','InstructorController@index')->name('instructor.index');
+Route::get('/instructor/new','InstructorController@create')->name('instructor.create');
+Route::post('/instructor/store','InstructorController@store')->name('instructor.store');
+Route::get('/instructor/{id}/edit','InstructorController@edit')->name('instructor.edit');
