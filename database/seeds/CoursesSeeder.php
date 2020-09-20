@@ -1,5 +1,6 @@
 <?php
 
+use App\User;
 use App\Course;
 use App\Category;
 use Cocur\Slugify\Slugify;
@@ -23,6 +24,7 @@ class CoursesSeeder extends Seeder
         $course->description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam in velit at eros varius elementum ac nec lorem. Maecenas placerat massa quis turpis congue accumsan. Suspendisse imperdiet lectus quam. Quisque vitae accumsan justo. Vestibulum scelerisque lacinia eros vitae finibus. Ut vel orci iaculis, imperdiet elit sed, eleifend neque. Proin magna augue, tincidunt in nisl eget, accumsan pulvinar nunc. Ut a rhoncus est. Sed consectetur non enim in vehicula. Donec pharetra ac lorem non lacinia.';
         $course->price = 19.99;
         $course->category_id = Category::all()->random(1)->first()->id;
+        $course->user_id = User::all()->random(1)->first()->id;
         $course->save();
 
         $course = new Course();
@@ -32,6 +34,7 @@ class CoursesSeeder extends Seeder
         $course->description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam in velit at eros varius elementum ac nec lorem. Maecenas placerat massa quis turpis congue accumsan. Suspendisse imperdiet lectus quam. Quisque vitae accumsan justo. Vestibulum scelerisque lacinia eros vitae finibus. Ut vel orci iaculis, imperdiet elit sed, eleifend neque. Proin magna augue, tincidunt in nisl eget, accumsan pulvinar nunc. Ut a rhoncus est. Sed consectetur non enim in vehicula. Donec pharetra ac lorem non lacinia.';
         $course->price = 14.99;
         $course->category_id = Category::all()->random(1)->first()->id;
+        $course->user_id = User::all()->random(1)->first()->id;
         $course->save();
 
         $course = new Course();
@@ -41,6 +44,7 @@ class CoursesSeeder extends Seeder
         $course->description = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam in velit at eros varius elementum ac nec lorem. Maecenas placerat massa quis turpis congue accumsan. Suspendisse imperdiet lectus quam. Quisque vitae accumsan justo. Vestibulum scelerisque lacinia eros vitae finibus. Ut vel orci iaculis, imperdiet elit sed, eleifend neque. Proin magna augue, tincidunt in nisl eget, accumsan pulvinar nunc. Ut a rhoncus est. Sed consectetur non enim in vehicula. Donec pharetra ac lorem non lacinia.';
         $course->price = 39.99;
         $course->category_id = Category::all()->random(1)->first()->id;
+        $course->user_id = User::all()->random(1)->first()->id;
         $course->save();
     }
 }

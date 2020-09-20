@@ -25,3 +25,5 @@ Route::get('/logout',function(){
 })->name('logout');
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/instructor/overview','InstructorController@index');

@@ -27,13 +27,13 @@
                                  <li>
                                      <div class="d-flex justify-content-between py-3 px-3">
                                          <div class="user-infos">
-                                             <p>Utilisateur</p>
-                                             <small>utilisateur@email.com</small>
+                                             <p> {{Auth::user()->name}} </p>
+                                             <small>{{Auth::user()->email}}</small>
                                          </div>
                                      </div>
                                  </li>
                                  <div class="dropdown-divider"></div>
-                                 <li><a href="#"><i class="fas fa-sign-out-alt"></i> Déconnexion</a></li>
+                                 <li><a href="{{route('logout')}}"><i class="fas fa-sign-out-alt"></i> Déconnexion</a></li>
                              </ul>
                     </li>
                 </ul>

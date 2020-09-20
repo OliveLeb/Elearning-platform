@@ -17,11 +17,13 @@
             </div>
         </div>
         <div class="row">
+            @if(count(Auth::user()->courses) > 0)
+            @foreach(Auth::user()->courses as $course)
             <div class="col-md-4">
                 <div class="card-body">
                     <div class="bi-text">
-                        <h5><a class="btn font-weight-bold" href="#">Titre du cours</a></h5>
-                        <span><i class="fa fa-clock-o"></i> 22/03/2020}</span>
+                        <h5><a class="btn font-weight-bold" href="#"> {{$course->title}} </a></h5>
+                        <span><i class="fa fa-clock-o"></i> {{$course->created_at}} </span>
                     </div>
                 </div>
                 <div class="blog-item set-bg" data-setbg="https://blog.hyperiondev.com/wp-content/uploads/2019/02/Blog-Types-of-Web-Dev.jpg">
@@ -33,6 +35,10 @@
                     </a>
                 </div>
             </div>
+            @endforeach
+            @else
+            <p>Pas de cours</p>
+            @endif
         </div>
     </div>
 </section>
