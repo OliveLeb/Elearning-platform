@@ -104,7 +104,28 @@ class InstructorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $course = Course::find($id);
+        $slugify = new Slugify();
+
+        $course->title = $request->input('title');
+        $course->subtitle = $request->input('subtitle');
+        $course->slug = $slugify->slugify($course->title);
+        $course->description = $request->input('description');
+        $course->category_id = $request->input('category');
+
+        if($request->file('image')){
+            $image = $request->file('image');
+            $imageFullName = $image->getClientOriginalName();
+            $imageName = pathinfo($imageFullName, PATHINFO_FILENAME);
+            $extension = $image->getClientOriginalExtension();
+            $file = time() . '_' . $imageName . '.' . $extension;
+            $image->storeAs('public/courses/' . Auth::user()->id, $file);
+
+            $course->image = $file;
+        }
+
+        $course->save();
+        return redirect()->route('instructor.index')->with('success', 'Vos modifications ont été apportées avec succès !');
     }
 
     /**
@@ -115,6 +136,8 @@ class InstructorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $course = Course::find($id);
+        $course->delete();
+        return redirect()->route('instructor.index')->with('success', 'Le cours a bien été supprimé !');
     }
 }

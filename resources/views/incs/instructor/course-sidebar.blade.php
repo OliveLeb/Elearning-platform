@@ -5,7 +5,7 @@
         <h4 class="btn text-white pl-0">Modification du cours</h4>
         <ul class="list-unstyled components mb-5">
             <li>
-                <a href="#">Programme</a>
+                <a href="{{route('instructor.curriculum.index',$course->id)}}">Programme</a>
             </li>
             <li>
                 <a href="#">Page d'accueil du cours</a>
@@ -15,10 +15,15 @@
         <h4 class="btn text-white pl-0">Gestion du cours</h4>
         <ul class="list-unstyled components mb-5">
             <li>
-                <a href="#">Tarification</a>
+                <a href="{{ route('pricing.index',$course->id)}} ">Tarification</a>
             </li>
             <li>
-            <a href="#">Participants</a>
+                <a href="#">Participants</a>
+            </li>
+            <li>
+                <a href="{{route('instructor.destroy', $course->id)}}" class="btn btn-danger text-left px-3">
+                <i class="fas fa-trash">&nbsp;Supprimer le cours</i>
+                </a>
             </li>
         </ul>
         <div class="d-flex justify-content-around">

@@ -6,7 +6,9 @@
     <div class="container">
         <div class="d-flex justify-content-center">
             <div class="col-lg-8">
-                <form action="#" class="comment-form contact-form" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('instructor.update',$course->id)}} " class="comment-form contact-form" method="POST" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
                     <div class="row">
                         <div class="col-lg-12">
                             <label for="title">Titre du cours</label>
