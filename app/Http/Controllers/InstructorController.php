@@ -7,6 +7,7 @@ use App\Category;
 use Cocur\Slugify\Slugify;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class InstructorController extends Controller
 {
@@ -137,6 +138,13 @@ class InstructorController extends Controller
     public function destroy($id)
     {
         $course = Course::find($id);
+
+        $fileToDelete = 'public/courses/' . Auth::user()->id . '/' . $course->image;
+
+        if(Storage::exists($fileToDelete)) {
+            Storage::delete($fileToDelete);
+        }
+
         $course->delete();
         return redirect()->route('instructor.index')->with('success', 'Le cours a bien été supprimé !');
     }

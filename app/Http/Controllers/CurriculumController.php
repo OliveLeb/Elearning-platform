@@ -88,7 +88,8 @@ class CurriculumController extends Controller
     public function destroy($id, $sectionId) {
         $section = Section::find($sectionId);
         $course = Course::find($id);
-        $fileToDelete = 'courses_sections/' . Auth::user()->id . '/' . $section->video;
+        $fileToDelete = 'public/courses_sections/' . Auth::user()->id . '/' . $section->video;
+
 
         if(Storage::exists($fileToDelete)) {
             Storage::delete($fileToDelete);
