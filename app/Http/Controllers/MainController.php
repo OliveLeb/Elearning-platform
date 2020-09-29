@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class MainController extends Controller
 {
     public function home(){
-       // $category = Category::where('id',2)->firstOrFail();
+        $category = Category::where('id',2)->firstOrFail();
         return view('main.home');
     }
 }

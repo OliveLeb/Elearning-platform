@@ -148,4 +148,17 @@ class InstructorController extends Controller
         $course->delete();
         return redirect()->route('instructor.index')->with('success', 'Le cours a bien été supprimé !');
     }
+
+    public function publish($id) {
+
+        $course = Course::find($id);
+
+        if($course->price && count($course->sections) > 0) {
+            $course->is_published = true;
+            $course->save();
+            return redirect()->back()->with('success', 'Le cours a été publié !');
+        }
+        return redirect()->back()->with('danger', 'Veuillez définir le tarif et créer au moins une section avant de publier le cours.');
+
+    }
 }

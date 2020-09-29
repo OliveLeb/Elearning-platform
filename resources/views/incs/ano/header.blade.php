@@ -1,13 +1,13 @@
 <nav class="mainmenu mobile-menu">
     <ul>
         <li class="active">
-            <a href="#">
+            <a href="{{route('main.home')}}">
                 <i class="fas fa-home"></i>
                 Accueil
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="{{route('courses.index')}}">
                 <i class="fas fa-ellipsis-v"></i>
                 Suivre un cours
             </a>
@@ -15,7 +15,7 @@
         <li class="mx-5 px-5">
         </li>
         <li>
-            <a href="#">
+            <a href="{{route('home')}}">
                 <i class="fas fa-chalkboard-teacher"></i>
                 Formateur
             </a>
