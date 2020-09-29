@@ -51,4 +51,6 @@ Route::get('/instructor/courses/{id}/curriculum/{section}/edit', 'CurriculumCont
 Route::put('/instructor/courses/{id}/curriculum/{section}/update', 'CurriculumController@update')->name('instructor.curriculum.update');
 Route::get('/instructor/courses/{id}/curriculum/{section}/destroy', 'CurriculumController@destroy')->name('instructor.curriculum.destroy');
 
-
+// PANIER
+Route::get('/cart','CartController@index')->name('cart.index');
+Route::get('/cart/{id}/store','CartController@store')->name('cart.store');

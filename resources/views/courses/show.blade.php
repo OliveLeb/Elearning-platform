@@ -49,7 +49,7 @@
                                         <div class="pi-price mt-5">
                                             <h2><span>€</span>{{$course->price}}</h2>
                                         </div>
-                                        <a href="#" class="price-btn">M'inscrire <i class="fas fa-arrow-right"></i></a>
+                                        <a href="{{route('cart.store',$course->id)}}" class="price-btn">M'inscrire <i class="fas fa-arrow-right"></i></a>
                                     </div>
                             </div>
                         </div>
@@ -71,17 +71,15 @@
             </div>
         </div>
         <div class="row">
-            @foreach($recommendations as $recommendation)
+            @foreach($recommendations as $item)
                 <div class="col-md-4">
-                    <a href="{{route('courses.show',$recommendation->slug)}}">
-                        <div class="blog-item set-bg" data-setbg="/storage/courses/{{$recommendation->user_id}}/{{$recommendation->image}}" alt="{{$recommendation->title}}">
-                            <div class="bi-tag bg-gradient">{{$recommendation->category->name}}</div>
-                            <div class="bi-text">
-                                <h5><a href="#">{{$recommendation->title}}</a></h5>
-                                <span><i class="fa fa-clock-o"></i> {{$recommendation->created_at}}</span>
-                            </div>
+                    <div class="blog-item set-bg" data-setbg="/storage/courses/{{$item->user_id}}/{{$item->image}}" alt="{{$item->title}}">
+                        <div class="bi-tag bg-gradient">{{$item->category->name}}</div>
+                        <div class="bi-text">
+                            <h5><a href="{{route('courses.show',$item->slug)}}">{{$item->title}}</a></h5>
+                            <span><i class="fa fa-clock-o"></i> {{$item->created_at}}</span>
                         </div>
-                    </a>
+                    </div>
                 </div>
             @endforeach
         </div>
