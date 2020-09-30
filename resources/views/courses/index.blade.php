@@ -33,7 +33,10 @@
                             </div>
                         </div>
                         <div class="col-lg-2">
-                            <b>{{$course->price}} €</b>
+                            <p><b>{{$course->price}} €</b></p>
+                            <a href="{{route('wishlist.store',$course->id)}}" title="Ajouter à la liste de souhait">
+                                <i class="fas fa-heart fa-3x"></i>
+                            </a>
                         </div>
                     </div>
                 @endforeach

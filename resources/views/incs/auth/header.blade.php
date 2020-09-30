@@ -49,36 +49,66 @@
         <li>
             <a href="{{route('cart.index')}}">
                 <i class="fas fa-shopping-cart"></i>
-                <span class="badge badge-pill badge-danger">1</span>
+                @if(count(\Cart::session(Auth::user()->id)->getContent()) > 0)
+                    <span class="badge badge-pill badge-danger">{{count(\Cart::session(Auth::user()->id)->getContent())}}</span>
+                @endif
             </a>
-            <ul class="dropdown px-2 py-2">
+            @if(count(\Cart::session(Auth::user()->id)->getContent()) > 0)
+                <ul class="dropdown px-2 py-2">
+                    @foreach(\Cart::session(Auth::user()->id)->getContent() as $item)
+                        <li>
+                            <div class="d-flex">
+                                <img class="avatar border-rounded" src="/storage/courses/{{$item->model->user_id}}/{{$item->model->image}}"/>
+                                <div class="user-infos ml-3">
+                                    <small>{{$item->model->title}}</small>
+                                    <p class="text-danger">{{$item->price}} €</p>
+                                </div>
+                            </div>
+                        </li>
+                    @endforeach
+                </ul>
+            @else
+            <ul class="dropdown px-2 py-2 text-center">
                 <li>
-                    <div class="d-flex">
-                        <img class="avatar border-rounded" src="https://blog.hyperiondev.com/wp-content/uploads/2019/02/Blog-Types-of-Web-Dev.jpg"/>
-                        <div class="user-infos ml-3">
-                            <small>Titre du cours</small>
-                            <p class="text-danger">29,99 €</p>
-                        </div>
+                    <div class="empty-cart">
+                        <p>Votre panier est vide.</p>
+                        <a class="btn bt-link" href="{{route('courses.index')}}">Continuez vos achats</a>
                     </div>
                 </li>
             </ul>
+            @endif
         </li>
         <li>
-            <a href="#">
+            <a href="{{route('cart.index')}}">
                 <i class="fas fa-heart"></i>
-                <span class="badge badge-pill badge-danger">1</span>
+                @if(count(\Cart::session(Auth::user()->id.'_wishlist')->getContent()) > 0)
+                    <span class="badge badge-pill badge-danger">{{count(\Cart::session(Auth::user()->id.'_wishlist')->getContent())}}</span>
+                @endif
             </a>
-            <ul class="dropdown px-2 py-2">
+            @if(count(\Cart::session(Auth::user()->id.'_wishlist')->getContent()) > 0)
+                <ul class="dropdown px-2 py-2">
+                    @foreach(\Cart::session(Auth::user()->id.'_wishlist')->getContent() as $item)
+                        <li>
+                            <div class="d-flex">
+                                <img class="avatar border-rounded" src="/storage/courses/{{$item->model->user_id}}/{{$item->model->image}}"/>
+                                <div class="user-infos ml-3">
+                                    <small>{{$item->model->title}}</small>
+                                    <p class="text-danger">{{$item->price}} €</p>
+                                </div>
+                            </div>
+                        </li>
+                    @endforeach
+                </ul>
+            @else
+            <ul class="dropdown px-2 py-2 text-center">
                 <li>
-                    <div class="d-flex">
-                        <img class="avatar border-rounded" src="https://blog.hyperiondev.com/wp-content/uploads/2019/02/Blog-Types-of-Web-Dev.jpg"/>
-                        <div class="user-infos ml-3">
-                            <small>Titre du cours</small>
-                            <p class="text-danger">19,99 €</p>
-                        </div>
+                    <div class="empty-cart">
+                        <p>Votre liste de souhait est vide.</p>
+                        <a class="btn bt-link" href="{{route('courses.index')}}">Continuez vos achats</a>
                     </div>
                 </li>
             </ul>
+            @endif
         </li>
         <li>
             <a class="nav-link" href="#">

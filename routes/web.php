@@ -54,3 +54,11 @@ Route::get('/instructor/courses/{id}/curriculum/{section}/destroy', 'CurriculumC
 // PANIER
 Route::get('/cart','CartController@index')->name('cart.index');
 Route::get('/cart/{id}/store','CartController@store')->name('cart.store');
+Route::get('/cart/{id}/destroy', 'CartController@destroy')->name('cart.destroy');
+Route::get('/cart/clear', 'CartController@clear')->name('cart.clear');
+
+// WISHLIST
+Route::get('/wishlist/{id}/store','WishListController@store')->name('wishlist.store');
+Route::get('/wishlist/{id}/destroy', 'WishListController@destroy')->name('wishlist.destroy');
+Route::get('/wishlist/{id}/tocart', 'WishListController@toCart')->name('wishlist.tocart');
+Route::get('/wishlist/{id}/towishlist', 'WishListController@toWishList')->name('wishlist.towishlist');
