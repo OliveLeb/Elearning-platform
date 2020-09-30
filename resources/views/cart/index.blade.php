@@ -20,7 +20,7 @@
                             @php
                                 $tax = \Cart::getTotal() / 5;
                                 $roundedTax = round($tax,2);
-                        @endphp
+                            @endphp
 
                             <tr>
                                 <td><img class="cart-img" src="/storage/courses/{{$course->model->user_id}}/{{$course->model->image}}" /> </td>
@@ -61,7 +61,7 @@
                         <a href="{{route('courses.index')}}" class="btn btn-block btn-light">Continuer vos achats</a href="#">
                     </div>
                     <div class="col-sm-12 col-md-6 text-right">
-                        <a href="#" class="btn btn-lg btn-block btn-success text-uppercase">Payer</a>
+                        <a href="{{route('checkout.payment')}}" class="btn btn-lg btn-block btn-success text-uppercase">Payer</a>
                     </div>
                 </div>
             </div>

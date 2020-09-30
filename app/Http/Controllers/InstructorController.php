@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Course;
+use App\Payment;
 use App\Category;
 use Cocur\Slugify\Slugify;
 use Illuminate\Http\Request;
@@ -160,5 +161,14 @@ class InstructorController extends Controller
         }
         return redirect()->back()->with('danger', 'Veuillez définir le tarif et créer au moins une section avant de publier le cours.');
 
+    }
+
+    public function participants($id) {
+        $course = Course::find($id);
+        $participants = Payment::where('course_id',$course->id)->get();
+        return view('instructor.participants',[
+            'course' => $course,
+            'participants' => $participants
+        ]);
     }
 }

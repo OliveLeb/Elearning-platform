@@ -8,7 +8,7 @@
                 <a href="{{route('instructor.curriculum.index',$course->id)}}">Programme</a>
             </li>
             <li>
-                <a href="#">Page d'accueil du cours</a>
+                <a href="{{route('instructor.edit',$course->id)}}">Page d'accueil du cours</a>
             </li>
         </ul>
 
@@ -18,7 +18,7 @@
                 <a href="{{ route('pricing.index',$course->id)}} ">Tarification</a>
             </li>
             <li>
-                <a href="#">Participants</a>
+                <a href="{{route('instructor.participants',$course->id)}}">Participants</a>
             </li>
             <li>
                 <a href="{{route('instructor.destroy', $course->id)}}" class="btn btn-danger text-left px-3">
